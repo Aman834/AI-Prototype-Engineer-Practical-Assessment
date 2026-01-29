@@ -1,0 +1,109 @@
+TASK 3: Rapid Iteration Challenge
+Chosen Advanced Capability: Multi-Document Reasoning
+What This Capability Does
+
+Multi-document reasoning allows the AI system to reason across multiple documents instead of a single PDF.
+Rather than treating each document in isolation, the system can retrieve and combine relevant information from multiple sources to answer a single user query.
+
+This capability reflects real enterprise use cases, where information is rarely stored in a single document.
+
+Why This Capability Was Chosen
+
+Multi-document reasoning was selected because:
+
+Realistic enterprise scenario
+In real organizations, knowledge is distributed across multiple PDFs such as reports, policies, research papers, and internal documents.
+
+Demonstrates deeper reasoning ability
+The system must retrieve, compare, and synthesize information across documents rather than repeating content from a single source.
+
+Builds directly on the existing RAG pipeline
+The existing vector-based retrieval system can be extended naturally to handle multiple documents without redesigning the architecture.
+
+High signal for evaluators
+This capability shows an understanding of scalable RAG systems rather than a simple demo application.
+
+How It Works (Conceptual Explanation)
+
+Multiple PDFs are ingested instead of one
+
+All document chunks are stored in the same vector database
+
+Each chunk retains metadata indicating its source document
+
+When a user asks a question, the retriever searches across all documents
+
+The system gathers relevant chunks from different PDFs
+
+The LLM generates an answer using combined context
+
+From the user’s perspective, the AI behaves like a single unified knowledge assistant.
+
+Example Use Case
+
+Documents available:
+
+Company policy document
+
+Technical design document
+
+Internal FAQ
+
+User question:
+“How does the system handle authentication and what security policies apply?”
+
+System behavior:
+
+Retrieves authentication details from the technical document
+
+Retrieves security rules from the policy document
+
+Produces a combined, coherent answer
+
+Trade-offs
+Advantages
+
+Broader knowledge coverage
+
+More realistic enterprise behavior
+
+Better answers for complex questions
+
+Reusable architecture for scaling
+
+Disadvantages
+
+Higher computational cost
+
+Larger vector database
+
+Increased token usage
+
+Slightly slower retrieval times
+
+Limitations
+
+No document prioritization
+All documents are treated equally. The system does not rank documents by authority or recency.
+
+No conflict resolution
+If documents contain contradictory information, the system does not automatically resolve inconsistencies.
+
+Context window constraints
+Only a limited number of retrieved chunks can be passed to the LLM at once.
+
+No long-term memory
+The system does not remember previous conversations or learned preferences.
+
+Why This Still Meets the Task Requirements
+
+The goal of Task 3 is rapid iteration, not full production readiness.
+Multi-document reasoning demonstrates:
+
+Architectural extensibility
+
+Practical design thinking
+
+Awareness of real-world constraints
+
+Ability to evolve a prototype meaningfully
